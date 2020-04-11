@@ -1,0 +1,37 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: s1-movie-catalog-service-service
+spec:
+  selector:
+    app: s1-movie-catalog-service
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8081
+      # Port to forward to inside the pod
+      targetPort: 8081
+      # Port accessible outside cluster
+      nodePort: 30081
+  type: LoadBalancer
+
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: s1-movie-catalog-service-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: s1-movie-catalog-service
+    spec:
+      containers:
+        - name: s1-movie-catalog-service
+          image: tsrana1/s1-movie-catalog-service:v1 
+          ports:
+            - containerPort: 8081

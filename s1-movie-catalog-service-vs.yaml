@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: s1-movie-catalog-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - movie-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: s1-movie-catalog-service
