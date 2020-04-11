@@ -26,6 +26,7 @@ public class MovieCatalogResource {
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCatalog(@PathVariable String userId){
 		
+		System.out.println("TSR -- inside getCatalog()... userId="+userId);
 		UserRating ratings = restTemplate.getForObject("http://s3-rating-data-service:8083/ratingsdata/users/"+userId, UserRating.class);
 		//UserRating ratings = restTemplate.getForObject("http://localhost:8083/ratingsdata/users/"+userId, UserRating.class);
 		
@@ -40,6 +41,7 @@ public class MovieCatalogResource {
 	
 	@RequestMapping("/movie/{movieId}")
 	public Movie getMovieInfo(@PathVariable String movieId) {
+		System.out.println("TSR -- inside getMovieInfo()");
 		return new Movie(movieId, "Hatyara1");
 	}
 
