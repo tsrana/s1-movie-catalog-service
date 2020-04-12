@@ -47,5 +47,4 @@ public class MovieCatalogResource {
 		System.out.println("TSR -- inside getMovieInfo()");
 		return new Movie(movieId, "Hatyara1");
 	}
-
 }
