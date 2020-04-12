@@ -26,7 +26,7 @@ public class MovieCatalogResource {
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCatalog(@PathVariable String userId){
 		
-		System.out.println("TSR -- inside getCatalog()... userId="+userId);
+		System.out.println("TSR1111 -- inside getCatalog()... userId="+userId);
 		UserRating ratings = restTemplate.getForObject("http://s3-rating-data-service:8083/ratingsdata/users/"+userId, UserRating.class);
 		//UserRating ratings = restTemplate.getForObject("http://localhost:8083/ratingsdata/users/"+userId, UserRating.class);
 		
