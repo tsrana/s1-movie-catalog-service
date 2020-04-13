@@ -32,7 +32,7 @@ public class MovieCatalogResourceDefault {
 		
 		System.out.println("TSR 1 -- Default Calling...");
 		cnt++;
-		return restTemplate.getForObject("http://s1-movie-catalog-service:8081/catalog/TSR.."+cnt, List.class);
+		return restTemplate.getForObject("http://s1-git:8081/catalog/TSR.."+cnt, List.class);
 	}
 	
 	@RequestMapping("/movie/{movieId}")
