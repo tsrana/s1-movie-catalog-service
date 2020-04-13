@@ -30,7 +30,7 @@ public class MovieCatalogResourceDefault {
 	@RequestMapping("/")
 	public List<CatalogItem> getCatalog(){
 		
-		System.out.println("TSR 1 -- Default Calling...");
+		System.out.println("TSR  -- Default Calling...");
 		cnt++;
 		return restTemplate.getForObject("http://s1-git:8081/catalog/TSR.."+cnt, List.class);
 	}
@@ -40,5 +40,19 @@ public class MovieCatalogResourceDefault {
 		System.out.println("TSR123 -- inside getMovieInfo()");
 		return new Movie(movieId, "Hatyara1");
 	}
+	
+	@RequestMapping("/hello")
+	public String hello() {
+        String hostname = System.getenv().getOrDefault("HOSTNAME", "unknown");
+	      String message = System.getenv().getOrDefault("APP_MSG", null);
+	      String response = "";
+
+      	if (message == null)
+      	  response = "Hello world from host "+hostname+"\n";
+      	else
+      	  response = "Hello world from host ["+hostname+"]. Message received = "+message+"\n";
+
+        return response;
+    }
 
 }
