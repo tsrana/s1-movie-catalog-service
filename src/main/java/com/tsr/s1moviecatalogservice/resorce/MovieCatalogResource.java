@@ -45,6 +45,6 @@ public class MovieCatalogResource {
 	@RequestMapping("/movie/{movieId}")
 	public Movie getMovieInfo(@PathVariable String movieId) {
 		System.out.println("TSR -- inside getMovieInfo()");
-		return new Movie(movieId, "Hatyara1");
+		return new Movie(movieId, "Hatyara13");
 	}
 }
